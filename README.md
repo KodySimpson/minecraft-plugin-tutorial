@@ -3,14 +3,14 @@
 Course code for Kody Simpson's Paper plugin development series.
 
 This repository contains only the plugin project shown in the videos. Use the
-branch selector on GitHub to choose the episode you are watching. Each episode
-branch is a frozen checkpoint of the project at the end of that episode.
+branch selector on GitHub to choose the part you are watching. Each part
+branch is a frozen checkpoint of the project at the end of that part.
 
-## Episode branches
+## Part branches
 
-| Episode | Branch |
+| Part | Branch |
 | --- | --- |
-| 2 - Your First Paper Plugin | `episode-02-first-paper-plugin` |
+| 2 - Your First Paper Plugin | `part-02-first-paper-plugin` |
 
 The `main` branch contains the latest completed version of the course project.
 
