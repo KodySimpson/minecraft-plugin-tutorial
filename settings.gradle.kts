@@ -1,1 +1,1 @@
-rootProject.name = "hello-paper"
+rootProject.name = "welcome-messages"
