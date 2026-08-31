@@ -1,37 +1,35 @@
-# Paper Plugin Development
+# Part 5 — Simple Commands
 
-Course code for Kody Simpson's Paper plugin development series.
+This branch contains the finished `ServerUtilities` plugin from Part 5 of
+Kody Simpson's Paper plugin development series.
 
-This repository contains only the plugin project shown in the videos. Use the
-branch selector on GitHub to choose the part you are watching. Each part
-branch is a frozen checkpoint of the project at the end of that part.
+## What this part teaches
 
-## Part branches
+- Paper's `BasicCommand` interface
+- registering commands in `onEnable`
+- the difference between the command sender and executor
+- player-only and console-safe command behavior
+- permissions and Component feedback
 
-| Part | Branch |
-| --- | --- |
-| 2 - Your First Paper Plugin | `part-02-first-paper-plugin` |
+## Commands
 
-The `main` branch contains the latest completed version of the course project.
+| Command | Purpose | Permission |
+| --- | --- | --- |
+| `/heal` | Restores the executing player's health, hunger, and fire state | `serverutilities.heal` |
+| `/serverinfo` | Shows the Minecraft version, player count, and loaded-world count | None |
 
 ## Requirements
 
 - Java 25
-- IntelliJ IDEA
-- The Minecraft Development plugin for IntelliJ IDEA
+- Paper 26.2
 
-## Build the plugin
-
-On Windows:
+## Build and run
 
 ```powershell
-.\gradlew.bat build
-```
-
-Run a local Paper test server:
-
-```powershell
+.\gradlew.bat clean build
 .\gradlew.bat runServer
 ```
 
-Type `stop` in the server console to shut the server down cleanly.
+## Try this
+
+Add a console-safe `/online` command that lists the names of online players.
