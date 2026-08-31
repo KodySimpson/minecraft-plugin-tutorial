@@ -1,37 +1,42 @@
-# Paper Plugin Development
+# Part 6: Brigadier Command Trees
 
-Course code for Kody Simpson's Paper plugin development series.
+This branch contains the completed **MovementCommands** plugin from Part 6 of
+*Make a Minecraft Plugin in 2026*.
 
-This repository contains only the plugin project shown in the videos. Use the
-branch selector on GitHub to choose the part you are watching. Each part
-branch is a frozen checkpoint of the project at the end of that part.
+It introduces Paper's lifecycle command registration and Brigadier command
+trees by building two typed commands:
 
-## Part branches
+- `/movement walk <speed>`
+- `/movement fly <speed>`
 
-| Part | Branch |
-| --- | --- |
-| 2 - Your First Paper Plugin | `part-02-first-paper-plugin` |
+The `speed` argument is a float from `0.0` through `1.0`. Both commands require
+the `movementcommands.use` permission and can only be run by a player.
 
-The `main` branch contains the latest completed version of the course project.
+## What this part teaches
 
-## Requirements
+- Registering commands with `LifecycleEvents.COMMANDS`
+- Building a command tree with literal and argument nodes
+- Reading a typed Brigadier float argument
+- Restricting an argument to a valid range
+- Checking the command executor before using player-only methods
+- Returning Brigadier success and failure result codes
 
+There is intentionally no `commands:` section in `plugin.yml`; the commands are
+registered through Paper's lifecycle API.
+
+## Course target
+
+- Paper 26.2 (API build 119)
 - Java 25
-- IntelliJ IDEA
-- The Minecraft Development plugin for IntelliJ IDEA
+- Gradle using the Kotlin DSL
 
-## Build the plugin
-
-On Windows:
+## Build
 
 ```powershell
-.\gradlew.bat build
+.\gradlew.bat clean build
 ```
 
-Run a local Paper test server:
+The plugin JAR is generated in `build/libs`.
 
-```powershell
-.\gradlew.bat runServer
-```
-
-Type `stop` in the server console to shut the server down cleanly.
+The series uses the [Paper developer documentation](https://docs.papermc.io/paper/dev/command-api/basics/registration/)
+as its primary technical reference.

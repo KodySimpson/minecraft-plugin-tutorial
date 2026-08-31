@@ -1,6 +1,10 @@
-name: HelloPaper
+name: MovementCommands
 version: '1.0.0'
-main: dev.kodysimpson.hellopaper.HelloPaper
-description: The first plugin in the Make a Minecraft Plugin in 2026 course.
+main: dev.kodysimpson.movementcommands.MovementCommandsPlugin
+description: Learn Paper command trees by changing walk and fly speeds.
 author: KodySimpson
 api-version: '26.2'
+permissions:
+  movementcommands.use:
+    description: Allows a player to change their walk and fly speed.
+    default: true
