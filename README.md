@@ -1,18 +1,30 @@
-# Paper Plugin Development
+# Part 7 - Command Targets and Suggestions
 
-Course code for Kody Simpson's Paper plugin development series.
+This branch contains the completed **Admin Toolkit** plugin from Part 7 of
+Kody Simpson's Paper plugin development series.
 
-This repository contains only the plugin project shown in the videos. Use the
-branch selector on GitHub to choose the part you are watching. Each part
-branch is a frozen checkpoint of the project at the end of that part.
+The project builds on command trees by using Paper's Minecraft-aware argument
+types. Paper and the client now parse player selectors and game modes for us,
+so commands get validation and tab suggestions without handwritten string
+parsing.
 
-## Part branches
+## Commands
 
-| Part | Branch |
-| --- | --- |
-| 2 - Your First Paper Plugin | `part-02-first-paper-plugin` |
+- `/admin heal <targets>` heals one or more online players.
+- `/admin gamemode <mode> <targets>` changes one or more players' game mode.
 
-The `main` branch contains the latest completed version of the course project.
+Try player names as well as native selectors such as `@a`, `@p`, and `@s`.
+The sender needs both `admintoolkit.use` and Paper's
+`minecraft.command.selector` permission to see and use the command tree.
+
+## What this part teaches
+
+- `ArgumentTypes.players()` and `PlayerSelectorArgumentResolver`
+- Resolving a selector against the command's `CommandSourceStack`
+- `ArgumentTypes.gameMode()` returning a real Bukkit `GameMode`
+- Built-in client suggestions and validation from native argument types
+- Restricting a command tree with plugin and selector permissions
+- Registering Brigadier commands through `LifecycleEvents.COMMANDS`
 
 ## Requirements
 
