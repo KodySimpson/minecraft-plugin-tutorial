@@ -1,6 +1,10 @@
-name: HelloPaper
+name: SpawnProtection
 version: '1.0.0'
-main: dev.kodysimpson.hellopaper.HelloPaper
-description: The first plugin in the Make a Minecraft Plugin in 2026 course.
+main: dev.kodysimpson.spawnprotection.SpawnProtectionPlugin
+description: Protects the area around each world's spawn point.
 author: KodySimpson
 api-version: '26.2'
+permissions:
+  spawnprotection.bypass:
+    description: Allows a player to build and take damage inside spawn protection.
+    default: op
