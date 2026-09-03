@@ -1,6 +1,6 @@
-name: HelloPaper
+name: FirstPlugin
 version: '1.0.0'
-main: dev.kodysimpson.hellopaper.HelloPaper
+main: me.kodysimpson.firstPlugin.FirstPlugin
 description: The first plugin in the Make a Minecraft Plugin in 2026 course.
 author: KodySimpson
 api-version: '26.2'

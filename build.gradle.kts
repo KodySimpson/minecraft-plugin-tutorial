@@ -3,7 +3,7 @@ plugins {
     id("xyz.jpenilla.run-paper") version "3.1.0"
 }
 
-group = "dev.kodysimpson"
+group = "me.kodysimpson"
 version = "1.0.0"
 
 repositories {
