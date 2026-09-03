@@ -12,9 +12,9 @@ the part you are watching from GitHub's branch dropdown.
 
 | Part | Project | Branch |
 | --- | --- | --- |
-| 2 — Your First Paper Plugin | HelloPaper | [`part-02-first-paper-plugin`](../../tree/part-02-first-paper-plugin) |
+| 2 — Your First Paper Plugin | FirstPlugin | [`part-02-first-paper-plugin`](../../tree/part-02-first-paper-plugin) |
 | 3 — Responding to Events | WelcomeMessages | [`part-03-responding-to-events`](../../tree/part-03-responding-to-events) |
-| 4 — Controlling Events | SpawnProtection | [`part-04-controlling-events`](../../tree/part-04-controlling-events) |
+| 4 — Controlling Events | cancelling-events | [`part-04-controlling-events`](../../tree/part-04-controlling-events) |
 | 5 — Simple Commands | ServerUtilities | [`part-05-simple-commands`](../../tree/part-05-simple-commands) |
 | 6 — Brigadier Command Trees | MovementCommands | [`part-06-brigadier-command-trees`](../../tree/part-06-brigadier-command-trees) |
 | 7 — Command Targets and Suggestions | AdminToolkit | [`part-07-command-targets-and-suggestions`](../../tree/part-07-command-targets-and-suggestions) |
