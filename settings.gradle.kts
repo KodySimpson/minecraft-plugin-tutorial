@@ -1,1 +1,1 @@
-rootProject.name = "spawn-protection"
+rootProject.name = "cancelling-events"

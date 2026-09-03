@@ -3,8 +3,8 @@ plugins {
     id("xyz.jpenilla.run-paper") version "3.1.0"
 }
 
-group = "dev.kodysimpson"
-version = "1.0.0"
+group = "me.kodysimpson"
+version = "1.0-SNAPSHOT"
 
 repositories {
     maven {
@@ -24,5 +24,12 @@ java {
 tasks {
     runServer {
         minecraftVersion("26.2")
+    }
+
+    processResources {
+        val props = mapOf("version" to version)
+        filesMatching("plugin.yml") {
+            expand(props)
+        }
     }
 }
