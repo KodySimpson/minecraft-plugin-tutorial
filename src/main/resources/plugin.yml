@@ -4,7 +4,3 @@ main: dev.kodysimpson.serverutilities.ServerUtilities
 description: Simple Paper commands for Part 5 of Make a Minecraft Plugin in 2026.
 author: KodySimpson
 api-version: '26.2'
-permissions:
-  serverutilities.heal:
-    description: Allows a player to use /heal.
-    default: op

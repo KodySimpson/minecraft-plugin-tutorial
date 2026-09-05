@@ -8,6 +8,7 @@ import org.jetbrains.annotations.NotNull;
 
 public final class ServerInfoCommand implements BasicCommand {
 
+    // Keeping the plugin instance gives this command access to the running server.
     private final ServerUtilities plugin;
 
     public ServerInfoCommand(ServerUtilities plugin) {
@@ -33,6 +34,7 @@ public final class ServerInfoCommand implements BasicCommand {
                 .append(Component.text(worlds, NamedTextColor.WHITE))
                 .build();
 
+        // The sender may be a player or the console, so this command works for both.
         source.getSender().sendMessage(message);
     }
 }

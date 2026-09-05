@@ -9,14 +9,16 @@ Kody Simpson's Paper plugin development series.
 - registering commands in `onEnable`
 - the difference between the command sender and executor
 - player-only and console-safe command behavior
-- permissions and Component feedback
+- clear Component feedback
+- connecting a command to an event-driven result
 
 ## Commands
 
-| Command | Purpose | Permission |
-| --- | --- | --- |
-| `/heal` | Restores the executing player's health, hunger, and fire state | `serverutilities.heal` |
-| `/serverinfo` | Shows the Minecraft version, player count, and loaded-world count | None |
+| Command | Purpose |
+| --- | --- |
+| `/heal` | Restores the executing player's health, hunger, and fire state |
+| `/serverinfo` | Shows the Minecraft version, player count, and loaded-world count |
+| `/potato` | Drops a potato four blocks ahead that kills a player when they pick it up |
 
 ## Requirements
 
@@ -33,3 +35,6 @@ Kody Simpson's Paper plugin development series.
 ## Try this
 
 Add a console-safe `/online` command that lists the names of online players.
+
+The potato listener intentionally treats every potato as dangerous. Later, the
+custom-items part will show how PDC can identify only the plugin's special item.
