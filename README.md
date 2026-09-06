@@ -1,42 +1,31 @@
 # Part 6: Brigadier Command Trees
 
-This branch contains the completed **MovementCommands** plugin from Part 6 of
-*Make a Minecraft Plugin in 2026*.
+This self-contained Part 6 plugin teaches literal command branches and an executable root.
 
-It introduces Paper's lifecycle command registration and Brigadier command
-trees by building two typed commands:
+- `/spawn zombie` and `/spawn creeper` spawn a mob. Bare `/spawn` is incomplete.
+- `/day` sets noon (6000 ticks).
+- `/day sunrise` sets dawn (23000 ticks).
+- `/day sunset` sets sunset (12000 ticks).
 
-- `/movement walk <speed>`
-- `/movement fly <speed>`
+Show the tree visual first, then the unregistered `BasicSpawnCommand.java` comparison,
+then `SpawnCommand.java`. Finish with `DayCommand.java` to demonstrate an executable root.
+The commented BasicSpawnCommand registration can be used instead of the spawn tree,
+but should never be enabled alongside it under the same command name.
 
-The `speed` argument is a float from `0.0` through `1.0`. Both commands require
-the `movementcommands.use` permission and can only be run by a player.
+Time changes affect everyone in the executing player's world. Use clear Overworld
+weather for the sky demo. Time continues advancing after each command.
 
-## What this part teaches
+Heal and movement now belong to **Part 7 — Command Arguments**.
 
-- Registering commands with `LifecycleEvents.COMMANDS`
-- Building a command tree with literal and argument nodes
-- Reading a typed Brigadier float argument
-- Restricting an argument to a valid range
-- Checking the command executor before using player-only methods
-- Returning Brigadier success and failure result codes
+## Build and run
 
-There is intentionally no `commands:` section in `plugin.yml`; the commands are
-registered through Paper's lifecycle API.
-
-## Course target
-
-- Paper 26.2 (API build 119)
-- Java 25
-- Gradle using the Kotlin DSL
-
-## Build
+Paper API `26.2.build.119-stable`, Java 25, Gradle 9.7.1.
 
 ```powershell
 .\gradlew.bat clean build
+.\gradlew.bat runServer
 ```
 
-The plugin JAR is generated in `build/libs`.
-
-The series uses the [Paper developer documentation](https://docs.papermc.io/paper/dev/command-api/basics/registration/)
-as its primary technical reference.
+Commands are registered through Paper's lifecycle API; there is no `commands:`
+section in `plugin.yml`. The project uses the existing package/main-class naming
+for continuity with the course files.
