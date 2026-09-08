@@ -1,10 +1,6 @@
-name: MovementCommands
+name: CommandArguments
 version: '1.0.0'
 main: dev.kodysimpson.movementcommands.MovementCommandsPlugin
-description: Learn Paper command trees by changing walk and fly speeds.
+description: Learn numeric, boolean, and text arguments with heal, movement, glow, and announce commands.
 author: KodySimpson
 api-version: '26.2'
-permissions:
-  movementcommands.use:
-    description: Allows a player to change their walk and fly speed.
-    default: true

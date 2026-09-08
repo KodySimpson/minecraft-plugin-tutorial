@@ -1,1 +1,1 @@
-rootProject.name = "movement-commands"
+rootProject.name = "command-arguments"

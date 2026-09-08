@@ -11,15 +11,15 @@ import org.bukkit.entity.Player;
 
 public final class MovementCommand {
 
-    private static final String PERMISSION = "movementcommands.use";
-
     private MovementCommand() {
     }
 
     public static LiteralCommandNode<CommandSourceStack> create() {
+        // The root can execute by itself and still have branches beneath it.
         return Commands.literal("movement")
-                .requires(source -> source.getSender().hasPermission(PERMISSION))
+                .executes(context -> showUsage(context.getSource()))
                 .then(Commands.literal("walk")
+                        // Brigadier validates the number and range before our executor runs.
                         .then(Commands.argument("speed", FloatArgumentType.floatArg(0.0F, 1.0F))
                                 .executes(context -> setSpeed(
                                         context.getSource(),
@@ -36,7 +36,15 @@ public final class MovementCommand {
                 .build();
     }
 
+    private static int showUsage(CommandSourceStack source) {
+        source.getSender().sendMessage(
+                Component.text("Use /movement walk <speed> or /movement fly <speed>.", NamedTextColor.AQUA)
+        );
+        return Command.SINGLE_SUCCESS;
+    }
+
     private static int setSpeed(CommandSourceStack source, float speed, SpeedType speedType) {
+        // The effect belongs to the entity this command is running as, not always its sender.
         if (!(source.getExecutor() instanceof Player player)) {
             source.getSender().sendMessage(Component.text(
                     "Only a player can change their movement speed.",
@@ -59,6 +67,7 @@ public final class MovementCommand {
                         .append(Component.text(".", NamedTextColor.GRAY))
         );
 
+        // Brigadier executors return an integer result; one represents a normal success.
         return Command.SINGLE_SUCCESS;
     }
 
