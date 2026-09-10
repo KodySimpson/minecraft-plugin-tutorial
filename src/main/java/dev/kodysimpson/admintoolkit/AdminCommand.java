@@ -20,29 +20,49 @@ import java.util.Locale;
 
 public final class AdminCommand {
 
-    private static final String USE_PERMISSION = "admintoolkit.use";
-    private static final String SELECTOR_PERMISSION = "minecraft.command.selector";
-
     private AdminCommand() {
     }
 
     public static LiteralCommandNode<CommandSourceStack> create() {
         return Commands.literal("admin")
-                .requires(source -> source.getSender().hasPermission(USE_PERMISSION)
-                        && source.getSender().hasPermission(SELECTOR_PERMISSION))
                 .then(Commands.literal("heal")
+                        // Stopping at /admin heal applies the action to the executing player.
+                        .executes(context -> {
+                            // Without targets, we need a player executor to use as "self".
+                            if (!(context.getSource().getExecutor() instanceof Player player)) {
+                                context.getSource().getSender().sendMessage(Component.text(
+                                        "Specify a player name or selector when using this from the console.",
+                                        NamedTextColor.RED
+                                ));
+                                return 0;
+                            }
+                            // A one-player list lets us reuse the same healing code.
+                            return healTargets(context, List.of(player));
+                        })
+                        // This typed argument accepts player names and selectors, not arbitrary text.
                         .then(Commands.argument("targets", ArgumentTypes.players())
-                                .executes(AdminCommand::healTargets)))
+                                .executes(context -> healTargets(context, resolveTargets(context)))))
                 .then(Commands.literal("gamemode")
+                        // Paper parses the input directly into a Bukkit GameMode value.
                         .then(Commands.argument("mode", ArgumentTypes.gameMode())
+                                // The mode is required, but targets are optional because this node executes too.
+                                .executes(context -> {
+                                    // As with heal, omitted targets mean the executing player.
+                                    if (!(context.getSource().getExecutor() instanceof Player player)) {
+                                        context.getSource().getSender().sendMessage(Component.text(
+                                                "Specify a player name or selector when using this from the console.",
+                                                NamedTextColor.RED
+                                        ));
+                                        return 0;
+                                    }
+                                    return changeGameMode(context, List.of(player));
+                                })
                                 .then(Commands.argument("targets", ArgumentTypes.players())
-                                        .executes(AdminCommand::changeGameMode))))
+                                        .executes(context -> changeGameMode(context, resolveTargets(context))))))
                 .build();
     }
 
-    private static int healTargets(CommandContext<CommandSourceStack> context)
-            throws CommandSyntaxException {
-        List<Player> targets = resolveTargets(context);
+    private static int healTargets(CommandContext<CommandSourceStack> context, List<Player> targets) {
 
         for (Player target : targets) {
             AttributeInstance maxHealth = target.getAttribute(Attribute.MAX_HEALTH);
@@ -62,10 +82,8 @@ public final class AdminCommand {
         return Command.SINGLE_SUCCESS;
     }
 
-    private static int changeGameMode(CommandContext<CommandSourceStack> context)
-            throws CommandSyntaxException {
+    private static int changeGameMode(CommandContext<CommandSourceStack> context, List<Player> targets) {
         GameMode gameMode = context.getArgument("mode", GameMode.class);
-        List<Player> targets = resolveTargets(context);
 
         for (Player target : targets) {
             target.setGameMode(gameMode);
@@ -86,10 +104,12 @@ public final class AdminCommand {
 
     private static List<Player> resolveTargets(CommandContext<CommandSourceStack> context)
             throws CommandSyntaxException {
+        // The resolver uses the live command source, which is important for selectors such as @s and @p.
         PlayerSelectorArgumentResolver resolver = context.getArgument(
                 "targets",
                 PlayerSelectorArgumentResolver.class
         );
+        // Let CommandSyntaxException reach Brigadier so the player keeps Minecraft's useful error cursor.
         return resolver.resolve(context.getSource());
     }
 

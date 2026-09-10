@@ -1,10 +1,6 @@
 name: AdminToolkit
 version: '1.0.0'
 main: dev.kodysimpson.admintoolkit.AdminToolkit
-description: Typed player targets and native suggestions for Part 7 of Make a Minecraft Plugin in 2026.
+description: Typed player targets and native suggestions for Part 8 of Make a Minecraft Plugin in 2026.
 author: KodySimpson
 api-version: '26.2'
-permissions:
-  admintoolkit.use:
-    description: Allows access to the Admin Toolkit commands.
-    default: op

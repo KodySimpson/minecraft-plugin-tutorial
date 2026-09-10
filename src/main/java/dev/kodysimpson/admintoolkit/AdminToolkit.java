@@ -7,6 +7,7 @@ public final class AdminToolkit extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        // Register the completed command tree during Paper's command lifecycle.
         getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, event ->
                 event.registrar().register(
                         AdminCommand.create(),

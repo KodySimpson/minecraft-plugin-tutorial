@@ -1,6 +1,6 @@
-# Part 7 - Command Targets and Suggestions
+# Part 8 - Command Targets and Suggestions
 
-This branch contains the completed **Admin Toolkit** plugin from Part 7 of
+This branch contains the completed **Admin Toolkit** plugin from Part 8 of
 Kody Simpson's Paper plugin development series.
 
 The project builds on command trees by using Paper's Minecraft-aware argument
@@ -10,12 +10,24 @@ parsing.
 
 ## Commands
 
-- `/admin heal <targets>` heals one or more online players.
-- `/admin gamemode <mode> <targets>` changes one or more players' game mode.
+- `/admin heal` heals the executing player; `/admin heal <targets>` heals selected players.
+- `/admin gamemode <mode>` changes the executing player's mode; append `<targets>` to change selected players.
+
+The shorter routes have their own `.executes(...)` callbacks. They pass a one-player
+list to the same action methods used by explicit targets. A normal console command
+must specify targets because it has no player executor. An invalid explicit target
+still produces an error; it never silently falls back to self.
 
 Try player names as well as native selectors such as `@a`, `@p`, and `@s`.
-The sender needs both `admintoolkit.use` and Paper's
-`minecraft.command.selector` permission to see and use the command tree.
+
+This companion version extracts selector resolution into a shared helper and
+formats game mode names in lowercase. Healing uses the player's maximum-health
+attribute and also restores saturation; the recording uses `setHealth(20)`.
+The command tree and argument-resolution concepts are the same.
+
+Native selectors require the appropriate server permissions (the video uses
+`op` on a local test server). This teaching example does not yet restrict the
+admin command itself; do not deploy it unchanged on a public server.
 
 ## What this part teaches
 
@@ -23,7 +35,6 @@ The sender needs both `admintoolkit.use` and Paper's
 - Resolving a selector against the command's `CommandSourceStack`
 - `ArgumentTypes.gameMode()` returning a real Bukkit `GameMode`
 - Built-in client suggestions and validation from native argument types
-- Restricting a command tree with plugin and selector permissions
 - Registering Brigadier commands through `LifecycleEvents.COMMANDS`
 
 ## Requirements
