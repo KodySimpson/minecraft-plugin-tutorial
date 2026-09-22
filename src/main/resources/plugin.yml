@@ -1,0 +1,10 @@
+name: text-components
+version: '${version}'
+
+main: me.kodysimpson.textComponents.TextComponents
+api-version: '26.2'
+
+permissions:
+  announcements.use:
+    description: Allows use of the announcement commands.
+    default: op
