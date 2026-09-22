@@ -1,0 +1,19 @@
+name: permissions
+version: '${version}'
+
+main: me.kodysimpson.permissions.Permissions
+api-version: '26.2'
+load: POSTWORLD
+permissions:
+  commandpermissions.*:
+    description: Grants access to every command in this plugin
+    default: op
+    children:
+      commandpermissions.heal: true
+      commandpermissions.spawn: true
+  commandpermissions.heal:
+    description: Allows a player to heal themselves
+    default: op
+  commandpermissions.spawn:
+    description: Spawns a specified mob
+    default: true
