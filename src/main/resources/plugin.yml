@@ -1,0 +1,6 @@
+name: ConfigTutorial
+version: '${version}'
+
+main: me.kodysimpson.configtutorial.ConfigTutorial
+api-version: '26.3'
+load: POSTWORLD
