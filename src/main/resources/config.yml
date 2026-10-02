@@ -1,0 +1,11 @@
+# Edit plugins/LaunchPads/config.yml while the server is stopped, then restart.
+# The bundled file does not overwrite an existing server copy.
+launch-pad:
+  enabled: true
+  material: GOLD_BLOCK # Put a pressure plate on this solid full block.
+  upward-strength: 1.0 # 0.1..2; upward velocity, NOT a height in blocks.
+  forward-strength: 1.6 # 0..2; use 0 for an upward-only launch.
+  message: "<gold>Whoooosh!</gold>" # MiniMessage, just like Part 12.
+
+# Use an open-air pad with a water landing area. Normal fall damage still applies.
+# Invalid materials or out-of-range strengths make pads inactive until corrected.

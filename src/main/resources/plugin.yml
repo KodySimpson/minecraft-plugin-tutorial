@@ -1,0 +1,10 @@
+name: LaunchPads
+version: '1.0.0'
+main: dev.kodysimpson.launchpads.LaunchPads
+api-version: '26.3'
+description: Paper course part-13-launch-pads.
+author: KodySimpson
+permissions:
+  launchpads.manage:
+    description: Allows viewing launch-pad setup instructions with /launchpad.
+    default: op
