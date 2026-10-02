@@ -1,0 +1,10 @@
+name: DialogExamples
+version: '1.0.0'
+main: dev.kodysimpson.dialogs.DialogExamplesPlugin
+api-version: '26.3'
+description: Server rules and a healing dialog with confirmation buttons and a health slider.
+author: KodySimpson
+permissions:
+  dialogexamples.use:
+    description: Allows the healing dialog.
+    default: op
