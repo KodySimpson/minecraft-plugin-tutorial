@@ -28,6 +28,8 @@ The command tree and argument-resolution concepts are the same.
 Native selectors require the appropriate server permissions (the video uses
 `op` on a local test server). This teaching example does not yet restrict the
 admin command itself; do not deploy it unchanged on a public server.
+[Part 9](../../tree/part-09-command-permissions) shows how to lock a command
+like this down with a permission and `.requires(...)`.
 
 ## What this part teaches
 
