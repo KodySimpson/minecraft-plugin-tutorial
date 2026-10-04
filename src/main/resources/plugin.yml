@@ -1,0 +1,6 @@
+name: JoinMessages
+version: '1.0.0'
+main: dev.kodysimpson.minimessage.JoinMessages
+api-version: '26.2'
+description: MiniMessage join welcomes and configurable snacks.
+author: KodySimpson

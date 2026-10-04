@@ -1,0 +1,20 @@
+# Stop the server, edit plugins/JoinMessages/config.yml, then restart.
+# No runtime reload command. Existing server configs are not overwritten.
+# MiniMessage tags belong in trusted administrator-authored templates.
+join-effects:
+  enabled: true
+  # Start simple: one named color and a placeholder supplied by our code.
+  # <gold> is a built-in style; <player> is replaced by JoinListener for each player.
+  message: "<gold>Welcome, <player>!</gold>"
+
+snack:
+  amount: 5 # Whole number, 1..64.
+  # <amount> is supplied by SnackCommand using the actual validated cookie count.
+  # Showpiece: hex-color gradient, bold heading, newline, hover text and a click suggestion.
+  # >- folds these YAML lines into one string; <newline> creates the actual chat line break.
+  # Clicking suggests /snack in chat; it does NOT execute it automatically.
+  # Format reference: https://docs.papermc.io/adventure/minimessage/format/
+  message: >-
+    <gradient:#ffb347:#fff2a8><bold>SNACK TIME!</bold></gradient><newline>
+    <gray>Enjoy your <gold><amount></gold> cookies!</gray>
+    <hover:show_text:'<yellow>Click to prepare another snack!</yellow>'><click:suggest_command:/snack><aqua><underlined>[More cookies]</underlined></aqua></click></hover>
