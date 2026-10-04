@@ -22,21 +22,22 @@ the part you are watching from GitHub's branch dropdown or the table below.
 | 9 — Command Permissions | permissions | [`part-09-command-permissions`](../../tree/part-09-command-permissions) |
 | 10 — Components and Audiences | text-components | [`part-10-components-and-audiences`](../../tree/part-10-components-and-audiences) |
 | 11 — Configuration Files | ConfigTutorial | [`part-11-configuration-files`](../../tree/part-11-configuration-files) |
+| 12 — MiniMessage | JoinMessages | [`part-12-minimessage`](../../tree/part-12-minimessage) |
 | 13 — Code Along: Launch Pads | LaunchPads | [`part-13-launch-pads`](../../tree/part-13-launch-pads) |
 | 14 — Dialog API | DialogExamples | [`part-14-dialog-api`](../../tree/part-14-dialog-api) |
 
-Part 12 (MiniMessage) does not have a branch yet. New branches are added as
-their parts are published.
+Part 12 is a standalone JoinMessages project, so its class and package names
+differ from the Part 11 branch. New branches are added as their parts are
+published.
 
 ## Course baseline
 
 - Java 25
-- Paper 26.2 for Parts 2–10 and Paper 26.3 for Part 11 onward
+- Paper 26.2 for Parts 2–10 and 12; Paper 26.3 for Part 11 and Parts 13 onward
 - Gradle with the Kotlin DSL
 - IntelliJ IDEA with the Minecraft Development plugin for project creation
 
-Each branch sets its own Paper API version in `build.gradle.kts`, matching the
-version its video used.
+Each branch sets its own Paper API version in `build.gradle.kts`.
 
 The videos use IntelliJ's Minecraft Development plugin to make project setup
 friendly for beginners. The generated Gradle files remain ordinary project
