@@ -1,0 +1,10 @@
+name: KitPicker
+version: '1.0.0'
+main: dev.kodysimpson.kitpicker.KitPickerPlugin
+api-version: '26.3'
+description: Open a chest menu and pick a kit by clicking its icon.
+author: KodySimpson
+permissions:
+  kitpicker.use:
+    description: Allows a player to open the kit menu with /kits.
+    default: true
