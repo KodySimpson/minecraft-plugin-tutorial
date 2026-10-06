@@ -1,0 +1,10 @@
+name: CustomKit
+version: '1.0.0'
+main: dev.kodysimpson.customkit.CustomKitPlugin
+api-version: '26.3'
+description: Build ItemStacks with names, lore, an enchantment, and an item flag.
+author: KodySimpson
+permissions:
+  customkit.kit:
+    description: Allows a player to receive the starter kit with /kit.
+    default: op
