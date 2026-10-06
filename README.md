@@ -27,6 +27,7 @@ the part you are watching from GitHub's branch dropdown or the table below.
 | 14 — Dialog API | DialogExamples | [`part-14-dialog-api`](../../tree/part-14-dialog-api) |
 | 15 — Scheduled Tasks | SchedulingExamples | [`part-15-scheduled-tasks`](../../tree/part-15-scheduled-tasks) |
 | 16 — Custom Items | CustomKit | [`part-16-custom-items`](../../tree/part-16-custom-items) |
+| 17 — Inventory Menus | KitPicker | [`part-17-inventory-menus`](../../tree/part-17-inventory-menus) |
 
 Part 12 is a standalone JoinMessages project, so its class and package names
 differ from the Part 11 branch. New branches are added as their parts are
