@@ -1,0 +1,10 @@
+name: SchedulingExamples
+version: '1.0.0'
+main: dev.kodysimpson.scheduling.SchedulingPlugin
+api-version: '26.3'
+description: Delayed, repeating, and self-cancelling tasks, plus a small async file report.
+author: KodySimpson
+permissions:
+  schedulingexamples.use:
+    description: Allows the scheduling demonstrations and server report export.
+    default: op
