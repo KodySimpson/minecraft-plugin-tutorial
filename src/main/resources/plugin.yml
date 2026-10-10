@@ -1,0 +1,10 @@
+name: Cooldowns
+version: '1.0.0'
+main: dev.kodysimpson.cooldowns.CooldownsPlugin
+api-version: '26.3'
+description: A /smite command and a snowball wand, each with a per-player cooldown.
+author: KodySimpson
+permissions:
+  cooldowns.smite:
+    description: Allows a player to strike lightning with /smite.
+    default: true
