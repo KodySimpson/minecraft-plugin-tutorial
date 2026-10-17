@@ -1,0 +1,10 @@
+name: FreezeTag
+version: '1.0.0'
+main: dev.kodysimpson.freezetag.FreezeTagPlugin
+api-version: '26.3'
+description: A round of Freeze Tag for everyone online, started and stopped with /freezetag.
+author: KodySimpson
+permissions:
+  freezetag.admin:
+    description: Allows a sender to start and stop Freeze Tag rounds.
+    default: op

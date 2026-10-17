@@ -1,0 +1,18 @@
+# How long everyone waits before the round starts, in seconds.
+countdown-seconds: 5
+# How long the runners must survive, in seconds.
+round-seconds: 120
+
+# MiniMessage templates. The game fills in <tagger>, <player>, <rescuer> and <seconds>.
+messages:
+  start: "<aqua><bold>Freeze Tag</bold></aqua> <dark_gray>•</dark_gray> <yellow><tagger></yellow> is the tagger. Get ready!"
+  countdown: "<gold>Starting in <bold><seconds></bold>...</gold>"
+  go: "<green><bold>GO!</bold></green> <gray>Run from the tagger!</gray>"
+  time-left: "<white><bold><seconds></bold>s left</white>"
+  tagged: "<red><player></red> <gray>was frozen by</gray> <yellow><tagger></yellow><gray>!</gray>"
+  rescued: "<aqua><player></aqua> <gray>was unfrozen by</gray> <green><rescuer></green><gray>!</gray>"
+  tagger-wins: "<gold><bold>The tagger wins!</bold></gold> <gray>Every runner is frozen.</gray>"
+  runners-win: "<green><bold>The runners win!</bold></green> <gray>Time is up.</gray>"
+  stopped: "<yellow>The Freeze Tag round was stopped.</yellow>"
+  tagger-left: "<yellow>The round ended because the tagger left.</yellow>"
+  not-enough-players: "<yellow>The round ended because fewer than two players are left.</yellow>"
